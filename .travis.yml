@@ -1,0 +1,27 @@
+language:
+- generic
+dist: trusty
+sudo: true
+addons:
+  apt:
+    packages:
+    - texlive-latex-extra
+    - texlive-luatex
+    - cm-super
+    - latexmk
+    - tex4ht
+    - texlive-fonts-recommended
+    - texlive-lang-italian
+    - latex-xcolor
+    - pgf
+script:
+- make
+before_deploy:
+- git fetch --tags
+#deploy:
+#  provider: releases
+#  file: GhioCA.pdf
+#  skip_cleanup: true
+#  on:
+#    repo: Augugrumi/GhioCA-Paper
+#    tags: true
