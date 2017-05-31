@@ -178,3 +178,9 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# GeneratedPdf
+GhioCA.pdf
+
+# GeneratedTexFiles
+res/listOfSections.tex
