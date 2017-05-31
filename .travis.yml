@@ -8,12 +8,14 @@ addons:
     - texlive-latex-extra
     - texlive-luatex
     - cm-super
+    - texlive-bibtex-extra
     - latexmk
     - tex4ht
+    - biber
     - texlive-fonts-recommended
     - texlive-lang-italian
     - latex-xcolor
-    - pgf
+    - texlive-publishers
 script:
 - make
 before_deploy:
