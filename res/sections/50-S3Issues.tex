@@ -6,29 +6,30 @@ We encountered different problems with some services, that are described below.
 
 \subsubsection{Azure Image Recognition}
 
-Azure Image Recognition is the main GhioCA backbone, and it performs image 
-recognition with an image description. It's a very powerful service. 
-Unfortunately we had problems with the service provider, that first of 
-all banned us without any reason and secondly it didn't accept our student 
-subscription that'd have allowed us to use it.
-And the end, without notifications, our first account was unbanned and we where 
-able to use the platform.
+Azure Image Recognition is core of GhioCA. It performs image 
+recognition providing a textual description of the image, and also some labels
+of the content. It is a very advanced service. Unfortunately, we had some problems
+with the service provider: firstly, it banned our first account; secondly it did
+not accept our student subscription that would have enabled us to use it.
+Finally, without any notification, Microsoft restored our first account and we
+where able to use the Image Recognition service.
 
 \subsubsection{Free OCR Space Character Recognition}
 
-Free OCR Space it's an OCR\footnote{OCR stands for \textit{Optical Character 
-Recognition}.} service that works very well. This service comes with different 
-subscription, and our free subscription allowed us to upload images up to 1MB. 
-We solved this limitation using different providers combination in order to be 
-able to use Free OCR Space when the image is less than 1MB, and other services 
-when is bigger than 1MB. % TODO what are the names of the other services...?
+Free OCR Space is an OCR\footnote{\textit{Optical Character 
+Recognition}} service that works very well, providing the text contained in a picture.
+It comes with different kind of subscriptions: the free one allowed us to upload
+images up to 1MB. 
+We solved this limitation using different providers combination in order to use
+Free OCR Space when the image is smaller than 1MB, and other services 
+when it is bigger than this threshold. % TODO what are the names of the other services...?
 
 \subsubsection{IBM Watson Image Recognition}
 
-We used image recognition from IBM in order to be able to gain more tags from 
-a shot performed by the user. % TODO need some rewording
+We also used an Image Recognition service from IBM in order to obtain more tags
+from a shot performed by the user. % TODO need some rewording
 Although we did not have problem with the service per-se, we found a bug in the 
-Android SDK that we where able to fix. % TODO write about the fix
+Watson SDK related to the  used data format, that we where able to fix. % TODO write about the fix
 
 \subsection{Problems with Smartphones}
 
