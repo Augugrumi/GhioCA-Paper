@@ -1,0 +1,57 @@
+\section{Know Application problems}
+
+\subsection{Problems with Services}
+
+We encountered different problems with some services, that are described below.
+
+\subsubsection{Azure Image Recognition}
+
+Azure Image Recognition is the main GhioCA backbone, and it performs image 
+recognition with an image description. It's a very powerful service. 
+Unfortunately we had problems with the service provider, that first of 
+all banned us without any reason and secondly it didn't accept our student 
+subscription that'd have allowed us to use it.
+And the end, without notifications, our first account was unbanned and we where 
+able to use the platform.
+
+\subsubsection{Free OCR Space Character Recognition}
+
+Free OCR Space it's an OCR\footnote{OCR stands for \textit{Optical Character 
+Recognition}.} service that works very well. This service comes with different 
+subscription, and our free subscription allowed us to upload images up to 1MB. 
+We solved this limitation using different providers combination in order to be 
+able to use Free OCR Space when the image is less than 1MB, and other services 
+when is bigger than 1MB. % TODO what are the names of the other services...?
+
+\subsubsection{IBM Watson Image Recognition}
+
+We used image recognition from IBM in order to be able to gain more tags from 
+a shot performed by the user. % TODO need some rewording
+Although we did not have problem with the service per-se, we found a bug in the 
+Android SDK that we where able to fix. % TODO write about the fix
+
+\subsection{Problems with Smartphones}
+
+During GhioCA development we found problems with particular smartphones, that
+will be listed here.
+
+\subsection{S3 first application run}
+
+We found that with the Samsung S3 (I9300) model permissions were not granted
+correctly, resulting in the impossibility to save the users' photos and thus to
+perform reverse image search only at the first application run. Debugging did
+not produce any evidence of bugs in our application, since the permissions were
+granted during App initialization.
+We address the issue to the custom ROM flashed on the smartphone, LineageOS
+(Android 7.0 Nougat), that probably has some problem handling authorization on
+S3 smartphones (since we tried this ROM on a Nexus 5 and we haven't noticed any
+strange behavior).
+To confirm our guesses we tried another camera available on the Google Play
+Store, OpenCamera\footnote{For more infos:
+\url{https://play.google.com/store/apps/details?id=net.sourceforge.opencamera}},
+ an open-source camera that requires Android 4.0.3 (Ice Cream Sandwich) or
+later.
+Opening it for the first time, granting the permission to write in the external
+storage and taking a photo hasn't worked even for this application, confirming
+our guesses about a bug in the LineageOS S3 version.
+We were not able to solve this issue without restarting the application.
