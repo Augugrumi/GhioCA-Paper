@@ -35,20 +35,21 @@ limitation is that the user has to choose it before starting the
 recognition process from the hamburger menu placed in the main activity. 
 The overall application is mainly composed by four activities:
 \begin{itemize}
-  \item splash activity: this view is needed to request to the user to give 
+  \item splash activity: this view is needed in order to gain from the user
     the necessary permissions (network access, camera access, access to 
     the storage);
-  \item camera preview activity: this one displays the user a minimal 
-    camera interface, with the possibility to take photos, turn off the 
-    flash, switch to frontal camera (if present) and to access to the 
-    gallery in order to pick a file instead of taking a picture. In the 
-    top left corner is present the hamburger menu: it allows user to 
-    choose the size of picture taken, remind the user to turn on the Wi-Fi 
-    sensor on every access and change the optimization of image recognition;
+  \item camera preview activity: this one displays the user a camera
+    interface, with the possibility to take photos, turn off the flash, switch 
+    to frontal camera (if present) and to access to the gallery in order to 
+    pick a file instead of taking a picture. In the top left corner is present 
+    the hamburger menu: it allows user to choose the size of picture taken, 
+    it reminds the user to turn on the Wi-Fi sensor on every access and it 
+    allows to switch from the image recognition functionality to the 
+    character optical recognition feature and vice-versa;
   \item results activities: these are two different activity depending on 
     the type of image recognition chosen. If "reverse image search" is 
-    selected the result activity will present, if no errors occurs, a 
-    textual description of the picture, with a bunch of hashtags correlated
-    to it. If "character recognition" is chosen, the result activity will 
-    present the text recognized.
+    selected the result activity will be presented. Without errors 
+    occurs, a textual description of the picture, with a bunch of hashtags 
+    correlated to it. If "character recognition" is chosen, the result activity 
+    will present the text recognized. % TODO fixme!
 \end{itemize}
