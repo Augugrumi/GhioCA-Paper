@@ -19,37 +19,36 @@ networking layer.
 %	-add a UML of the application architecture at really high level
 %		   NETWORK
 %		
-%		|-----------|		|-----------|
-%		| LISTENERS |------>|	PHOTO	|
-%		| ASYNCTASK |<------|			|
-%		|-----------|		|-----------|
+%		|-----------|           |---------------|
+%		| LISTENERS |------>    |     PHOTO     |
+%		| ASYNCTASK |<------    |               |
+%		|-----------|           |---------------|
 
 \subsection{Application description}
 GHio-Ca (Giving Hashtags In Order To Classify Automatically) is an Android 
 application that gives to a user the possibility to make image recognition on 
 her pictures. This application embed some camera features in order to make 
 possible to take a photo and recognize it directly, but it also allows to pick 
-a picture from the saved ones and launch the classifying process on it. It 
-supports both the optimization to recognize objects and to recognize text: the 
-limitation is that the user have to choose it before starting the recognition 
-process from the hamburger menu placed in the main activity. 
-
+a picture from the saved ones and launch the classifying process on it.
+GHio-Ca is specifically designed to recognize objects and text: the only 
+limitation is that the user has to choose it before starting the 
+recognition process from the hamburger menu placed in the main activity. 
 The overall application is mainly composed by four activities:
 \begin{itemize}
-	\item the splash activity: this view is used to request to the user to give 
-		  the necessary permissions (network access, camera access, access to 
-		  the storage);
-	\item the camera preview activity: this one displays the user a minimal 
-	      camera interface, with the possibility to take photos, turn off the 
-	      flash, switch to frontal camera (if present) and to access to the 
-	      gallery in order to pick a file instead of taking a picture. In the 
-	      top left corner is present the hamburger menu: it allows user to 
-	      choose the size of picture taken, remind the user to turn on the Wi-Fi 
-	      sensor on every access and change the optimization of image recognition;
-	\item the results activities: these are two different activity depending on 
-	      the type of image recognition chosen. If "reverse image search" is 
-	      selected the result activity will present, if no errors occurs, a 
-	      textual description of the picture, with a bunch of hashtags correlated
-	      to it. If "character recognition" is chosen, the result activity will 
-	      present the text recognized.
+  \item splash activity: this view is needed to request to the user to give 
+    the necessary permissions (network access, camera access, access to 
+    the storage);
+  \item camera preview activity: this one displays the user a minimal 
+    camera interface, with the possibility to take photos, turn off the 
+    flash, switch to frontal camera (if present) and to access to the 
+    gallery in order to pick a file instead of taking a picture. In the 
+    top left corner is present the hamburger menu: it allows user to 
+    choose the size of picture taken, remind the user to turn on the Wi-Fi 
+    sensor on every access and change the optimization of image recognition;
+  \item results activities: these are two different activity depending on 
+    the type of image recognition chosen. If "reverse image search" is 
+    selected the result activity will present, if no errors occurs, a 
+    textual description of the picture, with a bunch of hashtags correlated
+    to it. If "character recognition" is chosen, the result activity will 
+    present the text recognized.
 \end{itemize}
