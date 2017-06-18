@@ -38,6 +38,14 @@ The overall application is mainly composed by four activities:
   \item splash activity: this view is needed in order to gain from the user
     the necessary permissions (network access, camera access, access to 
     the storage);
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.18\textwidth]{../img/splash}
+        \caption{Screen-shot of the splash activity, when authorization are 
+                 required}
+        \label{fig:splash}
+    \end{figure}
+
   \item camera preview activity: this one displays the user a camera
     interface, with the possibility to take photos, turn off the flash, switch 
     to frontal camera (if present) and to access to the gallery in order to 
@@ -46,10 +54,24 @@ The overall application is mainly composed by four activities:
     it reminds the user to turn on the Wi-Fi sensor on every access and it 
     allows to switch from the image recognition functionality to the 
     character optical recognition feature and vice-versa;
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.30\textwidth]{../img/main_activity}
+        \caption{Screen-shots of the main activity, with and without open 
+                 hamburger menu}
+        \label{fig:splash}
+    \end{figure}
+
   \item results activities: these are two different activity depending on 
     the type of image recognition chosen. If "reverse image search" is 
     selected the result activity will be presented. Without errors 
     occurs, a textual description of the picture, with a bunch of hashtags 
     correlated to it. If "character recognition" is chosen, the result activity 
     will present the text recognized. % TODO fixme!
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.18\textwidth]{../img/image_result_activity}
+        \caption{Screen-shots of the result activity for image recognition}
+        \label{fig:splash}
+    \end{figure}
 \end{itemize}
