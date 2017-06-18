@@ -32,7 +32,7 @@ The overall application is mainly composed by four activities:
         \includegraphics[width=0.30\textwidth]{../img/main_activity}
         \caption{Screen-shots of the main activity, with and without open 
                  hamburger menu}
-        \label{fig:splash}
+        \label{fig:mainActivity}
     \end{figure}
   \item results activities: these are two different activities depending on
     the type of image recognition chosen.
@@ -44,7 +44,7 @@ tags. Any tag can be deselected by the user if it doesn't fit the image.
         \centering
         \includegraphics[width=0.18\textwidth]{../img/image_result_activity}
         \caption{Screen-shots of the result activity for image recognition}
-        \label{fig:splash}
+        \label{fig:imageResultActivity}
     \end{figure}
      \item With ``optical character recognition'' on, instead, the result
 activity will display the photographed text and its OCR translation. The user
@@ -80,25 +80,24 @@ the one expected in GHio-Ca, we decided to modify that project, changing those
 parts that were not functional to the project.
 
 \subsection{Architecture}
-GHio-Ca is principally composed by two layers: (i) the one that have to manage
+GHio-Ca is principally composed by three layers: (i) the one that have to manage
 network connectivity, uploading photos to the server and making requests to 
 different services in order to make the image recognition or the translation of 
-certain pieces of text, and (ii) the camera layer, that manages the photo 
-capturing process and saving. 
+certain pieces of text, (ii) the camera layer, that manages the photo 
+capturing process and saving and (iii) the layer that glues all the parts 
+toghether. 
 
-These two layers are maintained as loose coupled as possible in order to make 
+These layers are maintained as loose coupled as possible in order to make 
 easy to change services used without making important changes to the overall 
 application or changing the process of photo taking, without modify the 
 networking layer.
 
-%TODO
-%	-add a UML of the application architecture at really high level
-%		   NETWORK
-%		
-%		|-----------|		|-----------|
-%		| LISTENERS |------>|	PHOTO	|
-%		| ASYNCTASK |<------|			|
-%		|-----------|		|-----------|
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.40\textwidth]{../img/ghioca_macro_component}
+    \caption{GHio-Ca architecture}
+    \label{fig:architecture}
+\end{figure}
 
 In order to make network calls for image recognizing we implemented a utility 
 class that offers the possibility to create AsyncTasks, different for every 
@@ -134,3 +133,28 @@ application to a server and pass to the different services the URL to which the
 image is accessible. With this approach we allow users to save data because you 
 only need to upload the photo once and profit by the URL to make the recognition 
 with more services.
+
+The camera layer, instead, has only the job to manage the photo taking process, in 
+orderd to make possible to take a photo and save it on the user smartphone. These
+activities are fullfied using the camera fragment library. This library uses a 
+fragment in order to show to the user a preview of the photo and, using a 
+listener, when the user touch on the button for taking the photo, saves the 
+image in a specific folder(in our case in the GHio-Ca folder, inside Android 
+default picture folder). In order to recognize the photo taken, we have decided 
+to create a listener that has to listen to this process and when the image is 
+successfully saved on the smartphone, it starts the image recognition process. 
+
+This layer has also to give the user to select the camera(frontal or back), to 
+manage flash(turn on/off or choose automatic option) and to permits to the user 
+to choose the size of the photos taken.
+
+The last layer is the one that has the job to glue the previous two layers. In 
+fact, this layer has to create listeners both for camera and for the research. 
+It has to remember user search option choose in order to create the right kind 
+of listener, asynck task for the search and in order to format the results that 
+will be displayed to the user. It also manage the application sharing process: 
+as a matter of fact, after a search the application gives the possibility to 
+users to share the photo on different social media and via email. For some of 
+tham (Facebook, Twitter, Instagram, Whatsapp, Linkedin) there is a specific 
+implementation, if they need that some API are used, for the others the default 
+Android Intent Chooser is used. 
