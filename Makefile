@@ -8,9 +8,12 @@ COMPILER_OPTIONS= pdflatex -interaction=nonstopmode
 
 SHELL := /bin/bash #Need bash not shell
 
-all: compile
+export EMAIL
+export PASSWORD
 
-compile:
+all: image fast
+
+fast:
 	set -e; \
 	if [[ -a "res/$(LIST_NAME)" ]]; then echo "Removing res/$(LIST_NAME)"; \
 		rm res/$(LIST_NAME); fi; \
@@ -19,6 +22,12 @@ compile:
 		echo "\input{$$i}" >> res/$(LIST_NAME); \
 	done; \
 	latexmk -jobname=$(OUTPUT_NAME) -pdflatex='$(COMPILER_OPTIONS)' -pdf main.tex;
+
+image:
+	set -e; \
+	cd ./tool/emaildownloader/; \
+	$(MAKE) IMAGES_PATH=../../res/img/;
+
 
 clean:
 	git clean -Xfd

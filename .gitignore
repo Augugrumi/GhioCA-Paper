@@ -185,3 +185,8 @@ GhioCA.pdf
 # GeneratedTexFiles
 res/listOfSections.tex
 .directory
+res/img/AzureGraph.png
+res/img/GoogleGraph.png
+res/img/ImaggaGraph.png
+res/img/OverallGraph.png
+res/img/WatsonGraph.png

@@ -1,0 +1,3 @@
+[submodule "tool/emaildownloader"]
+	path = tool/emaildownloader
+	url = https://github.com/Augugrumi/emaildownloader.git

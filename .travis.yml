@@ -16,14 +16,22 @@ addons:
     - texlive-lang-italian
     - latex-xcolor
     - texlive-publishers
+    - pgf
+    - perl
+    - maven
+    - openjdk-7-jdk
+    - openjdk-7-jre
+before_script:
+- sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list'
+- gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+- gpg -a --export E084DAB9 | sudo apt-key add -
+- sudo apt-get update
+- sudo apt-get -y install r-base
 script:
-- make
+- make fast
 before_deploy:
 - git fetch --tags
-#deploy:
-#  provider: releases
-#  file: GhioCA.pdf
-#  skip_cleanup: true
-#  on:
-#    repo: Augugrumi/GhioCA-Paper
-#    tags: true
+env:
+  global:
+  - secure: 9nEB4kz5w9Chi2+dBpjFTprVQJgTGZ3Xei/NzvCvc5sjMz+DxLCZ+UW5dY2tYrf3sWKqnP7wJX9DL2RtUo2LlWO9W/ERt2VC5BSasvG9J5eu2OR1xqGZ4u/PF9v8UmLBNVJmfIoUvYEbtfrgonNSWwomqkoTfWWspjElI1e9n2GkoHsYzLFXPxoY3gUDQMkhBUb+Nd9AgDK3hM0JwZwFCa/B1grXp1V7+8VJWYP0iyd1cyG5qRSEtdmUE2ERzoIB7Z9kYR6tE3JVyOk09Uq1X3N0hbWTC1v66Wp9Bx06K+nlnDzaCLkDg4KFoB/cLYE4lXIwtiCHObzs/PULasJwDzbreOn7vFrLlR+k1uN9KTtBOKRxZDBPYPlp1DgtV/k35bl7eoRPo6rhH2adv42aOKtFz3xotj4EHfdukZ4ZhDfYUAQ1Vmtem50XiwmY7hqh1souq0eV2Q9Bl182UFHorAhl5HhYoZt8Kwo+Fmke3k4YwWTLzBdbYkwuB7lQSOybVHCJtRHPt9lPCWxRRDzsApij1XLwE+V2METn2NRKrzLgnzAj+CUvWRJ68YBDwxMPkIdzJ7/ap11CvASnczPuBjfcdXov7pfmwHoCTcI3h+QgiRlSXdlB7FYtnU1p91f2guIPTotZK0mXTw5eZWkehcgQFe3lC9IAHFOVOmXJHHM=
+  - secure: irDWIN2jdxIZG0Ng0/Q+sB4LOMlzji+iVrxGqx6NLfRbDHRu30NtfN+2D9lkO5DvC8IVr8tf1pyuiFxJgKtrRCCA9QCVK9uVsu15WYX4xZx6zmFKSktmByst8P3jWBk8AH5GewSKfKuqdAJz6Uw/mggjwgpYTo/KZqTu6E0xnj9U9x1l2L8xe0GRcJdodaO/A4OwgEwobSMb/ZUzjYtQAhTqjsF09Nq3TZ+E+rfE+tNDSlZsR4wttnjl1FBaQp7zuwIbXpB90CoyfJa8VsZ83S1xb92T4tJ7rG0zB6HXNKsxMWjaioCuqX29Kue/vfsfDQksOO4TRXMGcTRCMjvMekiwFAkNmyh4WnpWPV0LQWOZ1d/kWbt28ye1hkss+dfkXlNPd7SRWnDRXQx4qBXF72Vw+v9HHZam52ioQ+ZBr8tbtwlVyffSxHiQTFiAvcs9jk9qTk85i2DsXZXoWxfSMqfrCIdxN/weHM1OflTIlyp4NxxtN4SnoJmrGKw65SBqN1+KWOWM2+msFfxnISPBT1gH/BFKvzDrUPEPsJvVBmdWpcFvfBeAgFBdKXs/TkVk41jwDdg/LZ99m6hhI0VU447Y6pCmOroS+hvIS7+F9mFsocK8pHLYi1kYICeTR8hGwJGF7yUXxzvJZs52fgkdAul8EB/UqsHK+y9YiL5/MvQ=
