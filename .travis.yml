@@ -18,6 +18,7 @@ addons:
     - texlive-publishers
     - pgf
     - perl
+    - maven
     - openjdk-7-jdk
     - openjdk-7-jre
 before_script:
