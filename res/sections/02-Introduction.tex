@@ -3,60 +3,26 @@
 %TODO
 %	- insert some statistics of photo shared on media
 
-Nowadays, almost everyone owns at least one smartphone. That kind of devices are
-becoming more and more powerful, with better hardware and performace. One of the
-most interesting capability of smartphones is to take really realistic photo, and
-users truly appreciate it. As a matter of fact that on the Google's Play Store 
-there are plenty of application dedicated to photography.
+Nowadays, almost everyone owns at least one smartphone. That kind of devices are becoming more and more powerful, with better hardware and performace. One of the most interesting capability of smartphones is to take high quality pictures, and users truly appreciate it. As a matter of fact, on the Google Play Store there are plenty of application dedicated to photography.
+A lot of people take photo in order to share it on social networks, such as Facebook, Instagram, Twitter and so on. Often those photos are associated with a description and, generally, some hashtags that label them. The latters could be personal words that a person associate to a certain photo (e.g. feelings, person names, places) but they could also be used in order to describe the content of the photo.
+All these pieces of information can be really useful to train algorithms and to create datasets used in order to recognize images: in fact, these data, which are freely available, are posted by a person that manually label and describe a specific photo.
 
-A lot of people take photo in order to share it on social networks, such as 
-Facebook, Instagram, Twitter and so on, and often those are photos are 
-accompanied by a description and, generally, some hashtags that label them. The 
-latters could be personal words that a person associate to a certain photo but it
-also could be used in order to describe the content of the photo.
+Usually, image recognition services process an image, giving back a result that consists of a set of labels associated to that picture. Results could be more or less precise depending on the photo quality, subject and also on algorithm used. The result given back is often not perfect: indeed, at the state of art, image recognition can not be as precise as a human to describe a picture.
+One of the opportunities to profit by this context is to embed in an application the possibility of taking photos that will be processed by some image recognition service. The result of this process will be displayed to the user, that could choose only the subset of tags that are truly correlated to her picture: in that way users can automatically associate some tags to their photos and share them on
+social networks. On the other hand, with a human check to the result, you could evaluate how much a specific service works, train your own dataset or algorithm. 
 
-All of this pieces of information could be really useful to train algorithms and
-to create datasets used in order to recognize images: in fact, these data, freely 
-available,are posted by a person that manually labeled and described a specific 
-photo.
-
-Usually, image recognition services process an image, giving back a result that 
-consists of a set of tags correlated to that picture. Results could be more or 
-less precise depending on the photo quality, subject and algorithm used. The 
-result given back is almost always is not perfect: as a metter of fact that, at 
-the state of art, image recognition process could not as precise as could be a 
-human to describe a picture.
-
-One of the opportunities to profit by this context is to embed in an application
-the possibility of taking photos that will be processed by some image recognition 
-service. The result of this process will be displayed to the user, that could 
-choose only the subset of tags that are truly correlated to her picture: in that
-way users can automatically associate some tags to their photos and share them on
-social networks. On the other hand, with a human check to the result, you could 
-evaluate how much a specific service work well or train your own dataset or 
-algorithm. 
-
-Following this idea, we have designed and developed GHio-Ca(Giving Hashtags In 
-Order to Classify Automatically), a simple Android application that allows people
-to take photo or choose picture that will be automatically prosessed by some 
-image recognition services. In particular we have utilized these services:
+Following this idea, we have designed and developed \textit{GHio-Ca} (\textit{Giving Hashtags In Order to Classify Automatically}), an Android application that allows people to take photo or choose picture that will be automatically prosessed by some image recognition service. In particular, we used the following services:
 \begin{itemize}
-	\item Azure;
-	\item Watson;
-	\item Google reverse image search;
-	\item Immaga;
-	\item OCR Space.
+	\item Computer Vision API by Microsoft Azure\cite{Microsoft};
+	\item Visual Recognition by IBM Watson\cite{IBM};
+	\item Google Reverse Image Search\cite{Google};
+	\item OCR Space\cite{OCR};
+	\item Imagga\cite{Imagga}.
 \end{itemize}
 
-While the quality of service and the usability are major issues when developing 
-an application, we have focused principally on technical aspect, such as will be 
-able to correctly take photo and save them, make request to image recognition 
-services and parse result in order to display them. We have not focused our 
-affords on robustness of the application, so if the request could not be 
-performed (for example for a network failure or a service fault) the application 
-only notify to the user that some error occurred, however GHio-Ca allows user to 
-retry the image recognition process on the picture.
+While the quality of service and the usability are major issues when developing an application, we focused mainly on technical aspects, such as the ability of correctly take photo and save them, make request to image recognition services and parse result in order to display them. We did not focus our affords on robustness of the application: if the request can't be performed (for example for a network failure or a service fault), the application only notify to the user that some error occurred. However, GHio-Ca allows users to retry the image recognition process on the same picture.
 
+This paper is organized as follows: Section~\ref{sec:background} describes how artificial intelligence can perform image processing, while Section~\ref{sec:related} provides an overview on the current of art of Computer Vision applications. Section~\ref{sec:ghioca} describes how the application is designed and implemented, and Section~\ref{sec:issues} describes the problems we faced while developing our application. Finally, in Section~\ref{sec:results} we compare different image recognition APIs and in Section~\ref{sec:future} we propose some future developments for our application; Section~\ref{sec:conclusion} list conclusions on our work.
 
 
 
