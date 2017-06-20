@@ -17,6 +17,10 @@ addons:
     - latex-xcolor
     - texlive-publishers
     - pgf
+    - R
+    - perl
+    - openjdk-7-jdk
+    - openjdk-7-jre
 script:
 - make
 before_deploy:
