@@ -15,7 +15,7 @@ limitation is that the user has to choose it before starting the
 recognition process from the hamburger menu placed in the main activity.
 The overall application is mainly composed by four activities:
 \begin{itemize}
-  \item splash activity: this view is needed in order to gain from the user
+  \item \texttt{SplashActivity} (Figure~\ref{fig:splash}): this view is needed in order to gain from the user
     the necessary permissions (network access, camera access, access to
     the storage);
     \begin{figure}[h]
@@ -25,7 +25,7 @@ The overall application is mainly composed by four activities:
                  required}
         \label{fig:splash}
     \end{figure}
-  \item camera preview activity: this one displays the user a camera
+  \item \texttt{CameraPreviewActivity} (Figure~\ref{fig:mainActivity}): this one displays the user a camera
     interface, with the possibility to take photos, turn off the flash, switch
     to frontal camera (if present) and to access to the gallery in order to
     pick a file instead of taking a picture. In the top left corner is present
@@ -40,11 +40,11 @@ The overall application is mainly composed by four activities:
                  hamburger menu}
         \label{fig:mainActivity}
     \end{figure}
-  \item results activities: these are two different activities depending on
+  \item \texttt{ResultActivity}: these are two different activities depending on
         the type of image recognition chosen.
     \begin{itemize}
      \item If the ``reverse image search'' functionality is enabled then the
-           result activity will contain a photo thumbnail, a description and a list of
+           result activity will contain a photo thumbnail (Figure~\ref{fig:imageResultActivity}), a description and a list of
            tags. Any tag can be deselected by the user if it doesn't fit the image.
     \begin{figure}[h]
         \centering
@@ -58,40 +58,40 @@ The overall application is mainly composed by four activities:
     \end{itemize}
 \end{itemize}
 
-\subsection{libris}
-Libris(Library Reverse Image Search) is a library that we develop in order to 
+\subsection{Libris}
+Libris\footnote{\url{https://github.com/Augugrumi/libris}} (Library Reverse Image Search) is a library that we develop in order to 
 simply the image recognition process. This library has the job to make call to 
 the different services that we used in order to fulfill the image or character 
 recognition, defining an interface for the results.
 
-All the requests return a response in JSON format, that will be parsed and the 
+All the requests return a response in \texttt{JSON} format, that will be parsed and the 
 more informative fields are embedded in a object, different for every service, 
 that will be returned. 
 
-If some error occur during the request an IOException will be thrown.
+If some error occur during the request an \texttt{IOException} will be thrown.
 
 For image recognition libris gives the possibility to use: Azure, Watson, Immaga 
 and Google Reverse Image Search. In order to provide the latter service we 
 programmatically search on Google the image, catching the beast result returned.
 
-For Character recognition libris give the chance to utilize: Watson OCR(still in 
-beta), Azure OCR and FreeOCRSpace.
+For Character recognition libris give the chance to utilize: Watson OCR (still in 
+beta), Azure OCR and OCR Space (free version).
 
 \subsection{CameraFragment}
 CameraFragment is a library that simplify the camera using in Android. It's 
-open source and freely available on Github [TODO insert link]. Because of some
+open source and freely available on Github\footnote{\url{https://github.com/Augugrumi/CameraFragment}}. Because of some
 issues in the library, mainly caused by the wrong management of Android Camera1 
 and Camera2, and because the usage of some parts of that library differed from 
 the one expected in GHio-Ca, we decided to modify that project, changing those 
 parts that were not functional to the project.
 
 \subsection{Architecture}
-GHio-Ca is principally composed by three layers: (i) the one that have to manage
-network connectivity, uploading photos to the server and making requests to 
-different services in order to make the image recognition or the translation of 
-certain pieces of text, (ii) the camera layer, that manages the photo 
-capturing process and saving and (iii) the layer that glues all the parts 
-toghether. 
+GHio-Ca is principally composed by three layers (Figure~\ref{fig:architecture})
+(i) the one that have to manage network connectivity, uploading photos to the
+server and making requests to different services in order to make the image 
+recognition or the translation of certain pieces of text, (ii) the camera layer, 
+that manages the photo capturing process and saving and (iii) the layer that
+connects all the parts toghether. 
 
 These layers are maintained as loose coupled as possible in order to make 
 easy to change services used without making important changes to the overall 
@@ -110,12 +110,12 @@ class that offers the possibility to create AsyncTasks, different for every
 service, that will be executed on a thread pool (in order to make possible to 
 fulfill more tasks at same time). To each of those AsyncTask it must be associate 
 a listener in order to collect all the results of the search. Practically, 
-classes that implement the interface Listener expose methods 'onStart()', 
-'onFailure()' and 'onSuccess()', that will be called from the AsyncTask. The 
-first one is called in 'onPreExecute()' method, 'onFailure()' is invoked in 
-'onPostExecute()' if during the 'doInBackground()' method some error occurred 
-and, the latter one is called if the 'doInBackground()' method is executed 
-without any issue, during 'onPostExecute()'.
+classes that implement the interface Listener expose methods \texttt{onStart()}, 
+\texttt{onFailure()} and \texttt{onSuccess()}, that will be called from the \texttt{AsyncTask}. The 
+first one is called in \texttt{onPreExecute()} method, \texttt{onFailure()} is invoked in 
+\texttt{onPostExecute()} if during the \texttt{doInBackground()} method some error occurred 
+and, the latter one is called if the \texttt{doInBackground()} method is executed 
+without any issue, during \texttt{onPostExecute()}.
 
 Thanks to the possibility of detect image recognition process failure and since 
 we use more services, we have implemented some robustness feature in our 
@@ -140,7 +140,7 @@ image is accessible. With this approach we allow users to save data because you
 only need to upload the photo once and profit by the URL to make the recognition 
 with more services.
 
-The camera layer, instead, has only the job to manage the photo taking process, in 
+The camera layer, instead, has only to manage the photo taking process, in 
 orderd to make possible to take a photo and save it on the user smartphone. These
 activities are fullfied using the camera fragment library. This library uses a 
 fragment in order to show to the user a preview of the photo and, using a 
@@ -150,8 +150,8 @@ default picture folder). In order to recognize the photo taken, we have decided
 to create a listener that has to listen to this process and when the image is 
 successfully saved on the smartphone, it starts the image recognition process. 
 
-This layer has also to give the user to select the camera(frontal or back), to 
-manage flash(turn on/off or choose automatic option) and to permits to the user 
+This layer has also to give the user to select the camera (frontal or back), to 
+manage flash (turn on/off or choose automatic option) and to permits to the user 
 to choose the size of the photos taken.
 
 The last layer is the one that has the job to glue the previous two layers. In 
