@@ -16,6 +16,7 @@ addons:
     - texlive-lang-italian
     - latex-xcolor
     - texlive-publishers
+    - pgf
 script:
 - make
 before_deploy:
