@@ -16,19 +16,22 @@ where able to use the Image Recognition service.
 \subsubsection{Free OCR Space Character Recognition}
 
 Free OCR Space is an OCR\footnote{\textit{Optical Character 
-Recognition}} service that works very well, providing the text contained in a picture.
+Recognition}} service that works very well, providing the text contained in a 
+picture.
 It comes with different kind of subscriptions: the free one allowed us to upload
 images up to 1MB. 
 We solved this limitation using different providers combination in order to use
 Free OCR Space when the image is smaller than 1MB, and other services 
-when it is bigger than this threshold. % TODO what are the names of the other services...?
+when it is bigger than this threshold.
+% TODO what are the names of the other services...?
 
 \subsubsection{IBM Watson Image Recognition}
 
 We also used an Image Recognition service from IBM in order to obtain more tags
 from a shot performed by the user. % TODO need some rewording
 Although we did not have problem with the service per-se, we found a bug in the 
-Watson SDK related to the data format used, that we where able to fix. % TODO write about the fix
+Watson SDK related to the data format used, that we where able to fix. % TODO 
+write about the fix
 
 \subsection{Problems with Smartphones}
 
@@ -46,7 +49,7 @@ We address this issue to the custom ROM flashed on the smartphone, LineageOS
 (Android Nougnat 7.1), which probably has some problem to handle authorizations
 on S3 smartphones. We tried this ROM on a Nexus 5 and we haven't noticed any
 strange behavior.
-To confirm our guesses, we tried another camera available on the Google Play
+To confirm our guesses, we tried another camera available on the Google's Play
 Store, OpenCamera\footnote{For more infos:
 \url{https://play.google.com/store/apps/details?id=net.sourceforge.opencamera}},
  an open-source camera that requires Android 4.0.3 (Ice Cream Sandwich) or
@@ -55,5 +58,6 @@ Opening it for the first time, granting the permission to write in the external
 storage and taking a photo hasn't worked even for this application, confirming
 our guesses about a bug in the LineageOS version for Samsung S3.
 We were not able to solve this issue without a restart of the application.
+We found this problem also with Google's app Snapseed.
 However, we do not address this as a main issue since there are few old devices
 on the market which use this ROM.
