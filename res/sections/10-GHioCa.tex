@@ -21,8 +21,7 @@ The overall application is mainly composed by four activities:
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.18\textwidth]{../img/splash}
-        \caption{Screen-shot of the splash activity, when authorization are 
-                 required}
+        \caption{Screenshot of \texttt{SplashActivity} during authorization request}
         \label{fig:splash}
     \end{figure}
   \item \texttt{CameraPreviewActivity} (Figure~\ref{fig:mainActivity}): this one displays the user a camera
@@ -36,20 +35,20 @@ The overall application is mainly composed by four activities:
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.30\textwidth]{../img/main_activity}
-        \caption{Screen-shots of the main activity, with and without open 
-                 hamburger menu}
+        \caption{Screenshots of \texttt{CameraPreviewActivity}, with the hamburger menu 
+                 closed and open}
         \label{fig:mainActivity}
     \end{figure}
-  \item \texttt{ResultActivity}: these are two different activities depending on
+  \item \texttt{ResultActivity}: these are two different activities (Figure~\ref{fig:imageResultActivity}) depending on
         the type of image recognition chosen.
     \begin{itemize}
      \item If the ``reverse image search'' functionality is enabled then the
-           result activity will contain a photo thumbnail (Figure~\ref{fig:imageResultActivity}), a description and a list of
+           result activity will contain a photo thumbnail, a description and a list of
            tags. Any tag can be deselected by the user if it doesn't fit the image.
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.18\textwidth]{../img/image_result_activity}
-        \caption{Screen-shots of the result activity for image recognition}
+        \caption{Screenshots of the \texttt{ResultActivity} for image recognition}
         \label{fig:imageResultActivity}
     \end{figure}
      \item With ``optical character recognition'' on, instead, the result
@@ -70,7 +69,7 @@ that will be returned.
 
 If some error occur during the request an \texttt{IOException} will be thrown.
 
-For image recognition libris gives the possibility to use: Azure, Watson, Immaga 
+For image recognition Libris gives the possibility to use: Azure, Watson, Immaga 
 and Google Reverse Image Search. In order to provide the latter service we 
 programmatically search on Google the image, catching the beast result returned.
 
@@ -78,10 +77,10 @@ For Character recognition libris give the chance to utilize: Watson OCR (still i
 beta), Azure OCR and OCR Space (free version).
 
 \subsection{CameraFragment}
-CameraFragment is a library that simplify the camera using in Android. It's 
-open source and freely available on Github\footnote{\url{https://github.com/Augugrumi/CameraFragment}}. Because of some
-issues in the library, mainly caused by the wrong management of Android Camera1 
-and Camera2, and because the usage of some parts of that library differed from 
+CameraFragment\footnote{\url{https://github.com/Augugrumi/CameraFragment}} is a library that simplify the camera using in Android. It's 
+open source and freely available on Github. Because of some
+issues in the library, mainly caused by the wrong management of Android \texttt{Camera1} 
+and \texttt{Camera2}, and because the usage of some parts of that library differed from 
 the one expected in GHio-Ca, we decided to modify that project, changing those 
 parts that were not functional to the project.
 
@@ -106,7 +105,7 @@ networking layer.
 \end{figure}
 
 In order to make network calls for image recognizing we implemented a utility 
-class that offers the possibility to create AsyncTasks, different for every 
+class that offers the possibility to create \texttt{AsyncTask}, different for every 
 service, that will be executed on a thread pool (in order to make possible to 
 fulfill more tasks at same time). To each of those AsyncTask it must be associate 
 a listener in order to collect all the results of the search. Practically, 
