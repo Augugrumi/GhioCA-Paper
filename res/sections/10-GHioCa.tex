@@ -49,7 +49,7 @@ depending on the type of image recognition chosen:
 \begin{itemize}
         \item If the ``reverse image search'' functionality is enabled, then
 \texttt{ResultActivity} contains a photo thumbnail, a description and a list of
-tags. Any tag can be deselected by the user if it doesn't fit the image.
+tags. Any tag can be deselected by the user if it does not fit the image.
     \item Instead, with ``optical character recognition'' activated,
 \texttt{ResultActivity} displays the photographed text and its OCR translation.
 The user is able to pick another translation from a drop down menu.
@@ -69,7 +69,7 @@ simply the image recognition process. This library task is to make calls to the
 different services that we used, in order to fulfill the image or character
 recognition, defining an interface for the results.
 
-All the requests return a response in \texttt{JSON} format, that will is parsed.
+All the requests return a response in \texttt{JSON} format, that will be parsed.
 The more informative fields are embedded in a object, different for every
 service, which is returned. If some error occur during the request an
 \texttt{IOException} will be thrown.
