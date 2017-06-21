@@ -126,12 +126,12 @@ method some error occurred. The latter one is called if the
 \texttt{doInBackground()} method is executed without any issue, during 
 \texttt{onPostExecute()}.
 
-Thanks to the possibility of detect failures in image recognition process, and since
-we use more services, we implemented some robustness feature in our application,
-enabling it to return an error to the user only if all services fail. The
-scenario where, even if the application could start the image recognition
-process, but it is not be able to finish it, could still occurs (e.g. caused
-by a network fault).
+Thanks to the possibility of detect failures in image recognition process, and 
+since we use more services, we implemented some robustness feature in our 
+application, enabling it to return an error to the user only if all services 
+fail. The scenario where, even if the application could start the image 
+recognition process, but it is not be able to finish it, could still occurs 
+(e.g. caused by a network fault).
 
 If no errors occur, we decided to skim results based on the probability that a
 word (or group of words) could be correlated to the user picture. So, if the
@@ -142,7 +142,7 @@ based on the fact that a
 certain word could be more or less correlated to the picture. In that case, we
 present to the user only the more related results.
 
-This layer not only has responsibility to search the image but it ha to offer
+This layer not only has responsibility to search the image but it has to offer
 the possibility to upload the image that has to be recognized. Because of
 limitations of some services and to reduce network usage, we decided to upload the
 photo to a server, and send the URL of tha image to different services.
