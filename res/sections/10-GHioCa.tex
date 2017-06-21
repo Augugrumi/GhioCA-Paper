@@ -84,12 +84,11 @@ beta), Azure OCR and OCR Space (free version).
 
 \subsection{CameraFragment}
 CameraFragment\footnote{\url{https://github.com/Augugrumi/CameraFragment}} is a
-library that simplify the camera usage in Android. It is
-open source and freely available on Github. Because of some issues in the
-library, mainly caused by the wrong management of Android \texttt{Camera1} and
-\texttt{Camera2}, and due to the fact that some parts of that library differed
-from the one expected in GHio-Ca, we decided to modify that project, changing
-some parts.
+library that simplify the camera usage in Android. It is open source and freely 
+available on Github. Because of some issues in the library, mainly caused by 
+the wrong management of Android \texttt{Camera1} and \texttt{Camera2}, and due 
+to the fact that some parts of that library differed from the one expected in 
+GHio-Ca, we decided to modify that project, changing some parts.
 
 \subsection{Architecture}
 GHio-Ca is principally composed by three layers (Figure~\ref{fig:architecture}):
@@ -97,8 +96,7 @@ GHio-Ca is principally composed by three layers (Figure~\ref{fig:architecture}):
 and makes requests to different services in order to make the image recognition
 or the translation of certain pieces of text; (ii) the camera layer, that
 manages the photo capturing process and storage on the devices, and (iii) the
-layer that
-connects all the pieces together.
+layer that connects all the pieces together.
 
 These layers are maintained as loose coupled as possible, in order to make it
 easy to change services used without making important changes to the overall
@@ -136,15 +134,15 @@ recognition process, but it is not be able to finish it, could still occurs
 If no errors occur, we decided to skim results based on the probability that a
 word (or group of words) could be correlated to the user picture. So, if the
 service provides this feature, we only take result that have an high
-probability, setting the threshold to 70\% (we set that value empirically). If the
-service does not provide a probability, it generally divides results in two sets
-based on the fact that a certain word could be more or less correlated to the 
-picture. In that case, we present to the user only the more related results.
+probability, setting the threshold to 70\% (we set that value empirically). If 
+the service does not provide a probability, it generally divides results in two 
+sets based on the fact that a certain word could be more or less correlated to 
+the picture. In that case, we present to the user only the more related results.
 
 This layer not only has responsibility to search the image but it has to offer
 the possibility to upload the image that has to be recognized. Because of
-limitations of some services and to reduce network usage, we decided to upload the
-photo to a server, and send the URL of tha image to different services.
+limitations of some services and to reduce network usage, we decided to upload 
+the photo to a server, and send the URL of tha image to different services.
 With this approach, we reduce bandwidth usage: the user needs to upload the
 photo only once and can take advantage of the URL to make the recognition with
 more services.
@@ -156,8 +154,8 @@ in order to show to the user a preview of the photo and, when the user touch on
 the button to take photos, saves the image in a specific folder using a
 listener (in our case, the GHio-Ca folder, inside Android default Picture
 folder). In order to recognize the photo taken, we decided to create a
-\texttt{Listener} that has to check this process and, when the image is successfully
-saved on the smartphone, it starts the image recognition process.
+\texttt{Listener} that has to check this process and, when the image is 
+successfully saved on the smartphone, it starts the image recognition process.
 This layer has also to give the user the ability to select the camera (frontal
 or back), to manage flash (turn on/off or choose automatic option) and to enable
 the user to choose the size of the photos.
@@ -165,11 +163,10 @@ the user to choose the size of the photos.
 The last layer is the one that has to connect the previous two layers. In fact,
 this layer has to create listeners both for the camera and the search. It has
 to remember user's search option choose in order to create the right kind of
-\texttt{Listener}, \texttt{AsyncTask} for the search and in order to arrange the results
-that are displayed to the user. Moreover, it manages the application
-sharing
-process: as a matter of fact, after a research, the application gives to the user the
-possibility to share the photo on different social networks and
+\texttt{Listener}, \texttt{AsyncTask} for the search and in order to arrange the 
+results that are displayed to the user. Moreover, it manages the application
+sharing process: as a matter of fact, after a research, the application gives 
+to the user the possibility to share the photo on different social networks and
 through e-mails. For some of them (Facebook, Twitter, Instagram, Whatsapp,
 Linkedin) there is a specific implementation, if the usage of a API is needed;
 for the others, the default Android \texttt{IntentChooser} is used.
