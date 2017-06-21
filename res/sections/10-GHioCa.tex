@@ -120,10 +120,11 @@ make possible to fulfill more tasks at same time). Each of those
 the results of the search. Practically, classes that implement the interface
 \texttt{Listener} expose methods \texttt{onStart()}, \texttt{onFailure()} and
 \texttt{onSuccess()}, that are called from the \texttt{AsyncTask}. The first one
-is called in \texttt{onPreExecute()} method, \texttt{onFailure()} is invoked in
-\texttt{onPostExecute()} if during the \texttt{doInBackground()} method some
-error occurred and the latter one is called if the \texttt{doInBackground()}
-method is executed without any issue, during \texttt{onPostExecute()}.
+is called in \texttt{onPreExecute()} method, instead, \texttt{onFailure()} is 
+invoked in \texttt{onPostExecute()} if during the \texttt{doInBackground()} 
+method some error occurred. The latter one is called if the 
+\texttt{doInBackground()} method is executed without any issue, during 
+\texttt{onPostExecute()}.
 
 Thanks to the possibility of detect failures in image recognition process, and since
 we use more services, we implemented some robustness feature in our application,
