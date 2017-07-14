@@ -23,7 +23,7 @@ During GhioCA development we found problems with a particular smartphone, that i
 
 \subsection{S3 first application run}
 
-We found using the Samsung S3 (I9300) model, permissions were not granted correctly, consequently we were not able to save the user photos propperly and thus to perform reverse image search at first application run. Debugging did not produce any evidence of bugs in our application, since the permissions were granted on start up time.
+We found using the Samsung S3 (I9300) model, permissions were not granted correctly, consequently we were not able to save the user photos properly and thus to perform reverse image search at first application run. Debugging did not produce any evidence of bugs in our application, since the permissions were granted on start up time.
 We address this issue to the custom ROM flashed on the smartphone, LineageOS (Android Nougnat 7.1), which probably has some problem to handle authorizations on S3 smartphones. We tried this ROM on a Nexus 5 and we haven not noticed any particular behaviour.
 To confirm our guesses, we tried another camera available on the Google's Play Store, OpenCamera\footnote{\url{https://play.google.com/store/apps/details?id=net.sourceforge.opencamera}}, an open-source camera that requires Android 4.0.3 (Ice Cream Sandwich) or later.
 Opening it for the first time, granting the permission to write in the external storage and taking a photo has not worked even for this application, confirming our guesses about a bug in the LineageOS version for Samsung S3.
