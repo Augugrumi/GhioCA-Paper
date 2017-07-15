@@ -1,14 +1,14 @@
 \section{GHio-Ca}
 \label{sec:ghioca}
-In this section we will provide some salient features implemented by our
-application, mainly regarding the architectural and implementation choices that
-we made during development.
+In this section we provide some salient features implemented in our
+application, mainly regarding architectural and implementative choices that
+we made during its development.
 
 \subsection{Application description}
 GHio-Ca is an Android application that gives to a user the possibility to make
 image recognition on her pictures. This application embed some camera features
-in order to make possible to take a photo and recognize it, but it also allows
-to pick a picture from the local storage and launch the classification process
+to make possible taking a photo and recognizing its content, but it also allows
+to pick a picture from the local storage and start the classification process
 on it. We imposed as minimum API level 21 (Android Lollipop).
 GHio-Ca is specifically designed to recognize objects and text: the only
 limitation is that the user has to choose it before starting the recognition
@@ -16,7 +16,7 @@ process from the hamburger menu placed in the \texttt{MainActivity}.
 The overall application is mainly composed by four activities.
 
 \subsubsection{\texttt{SplashActivity}}
-This view (Figure~\ref{fig:splash}) is needed in order to obtain from the user
+This view (Figure~\ref{fig:splash}) is needed to obtain from the user
 the necessary permissions (network access, camera access, access to  the
 storage).
 \begin{figure}[h]
@@ -28,13 +28,13 @@ storage).
 
 \subsubsection{\texttt{CameraPreviewActivity}}
 This activity (Figure~\ref{fig:mainActivity}) shows to the user a camera
-interface, with the possibility to take photos, turn off the flash, switch to
+interface  to take photos, turn on/off the flash, switch between back and
 frontal camera (if present) and to access to the gallery in order to pick a file
-instead of taking a picture. In the top left corner is present the hamburger
-menu: it allows user to choose the size of picture taken, it reminds the user to
-turn on the Wi-Fi sensor on every access and it allows to switch from the image
-recognition functionality to the character optical recognition feature and
-vice-versa.
+instead of taking a picture. In the top left corner there is the hamburger
+menu: it allows the user to choose the size of the picture she took, it can remind 
+to the user to turn on the Wi-Fi sensor at every access and it allows to switch 
+from the image recognition functionality to the Optical Character Recognition (OCR)
+feature and vice-versa.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.30\textwidth]{../img/main_activity}
@@ -50,9 +50,9 @@ depending on the type of image recognition chosen:
         \item If the ``reverse image search'' functionality is enabled, then
 \texttt{ResultActivity} contains a photo thumbnail, a description and a list of
 tags. Any tag can be deselected by the user if it does not fit the image.
-    \item Instead, with ``optical character recognition'' activated,
-\texttt{ResultActivity} displays the photographed text and its OCR translation.
-The user is able to pick another translation from a drop down menu.
+    \item If ``optical character recognition'' is activated,
+\texttt{ResultActivity} displays the photographed text and its OCR result.
+The user is able to pick another language for the translation from a drop down menu.
 \end{itemize}
 
 \begin{figure}[h]
@@ -64,22 +64,22 @@ The user is able to pick another translation from a drop down menu.
 
 \subsection{Libris}
 Libris\footnote{\url{https://github.com/Augugrumi/libris}} (Library for Reverse
-Image Search) is a library that we developed in order to make 
-simpler the image recognition process. The library aim is to make calls to 
-different services that we used easier, in order to fulfill the image or 
+Image Search) is a library that we developed in order simplify the image 
+recognition process. The library aims to make easier making calls to 
+the different services that we used, in order to fulfill the image or 
 character recognition, defining an interface for the results.
 
-All the requests return a response in \texttt{JSON} format, that will be parsed.
-The more informative fields are embedded in a object, different for every
+All the requests return a response in \texttt{JSON} format, which is parsed.
+The more relevant fields are embedded in a object, different for every
 service, which is returned as result. If some error occurs during the request an
-\texttt{IOException} will be thrown.
+\texttt{Exception} is thrown.
 
 For image recognition Libris gives the possibility to use all the services
 listed in Section~\ref{sec:introduction}, except for Free OCR. In order to
 provide the Google Reverse Search Image service, we programmatically search on
-Google the image, picking up the best returned result.
+Google the image, choosing the best returned result.
 
-For Character recognition Libris gives the chance to use: Watson OCR (still in
+For Optical Character Recognition, Libris gives the chance to use: Watson OCR (still in
 beta), Azure OCR and OCR Space (free version).
 
 \subsection{CameraFragment}
@@ -88,18 +88,18 @@ library that simplify the camera usage in Android. It is open source and freely
 available on Github. Because of some issues in the library, mainly caused by 
 the wrong management of Android \texttt{Camera1} and \texttt{Camera2}, and due 
 to the fact that some parts of that library differed from the one expected in 
-GHio-Ca, we decided to modify that project, changing some parts.
+GHio-Ca, we decided to modify that project, alligning it to our needs.
 
 \subsection{Architecture}
 GHio-Ca is principally composed by three layers (Figure~\ref{fig:architecture}):
-(i) the one that manages network connectivity, uploads of photos to the server
-and makes requests to different services in order to make the image recognition
+(i) the first one manages network connectivity, uploads of photos to the server
+and makes requests to different services in order to make image recognition
 or the translation of certain pieces of text; (ii) the camera layer, that
 manages the photo capturing process and storage on the devices, and (iii) the
 layer that connects all the pieces together.
 
 These layers are maintained as loose coupled as possible, in order to make it
-easy to change services used without making important changes to the overall
+easier to change the used services without making important changes to the overall
 application (e.g changing the process of capturing a photo without modifying the
 networking layer).
 
@@ -110,9 +110,9 @@ networking layer).
     \label{fig:architecture}
 \end{figure}
 
-Since we need to make network calls to recognize an image, we implemented a
+Since we need to make API calls to recognize an image, we implemented a
 utility class that offers the possibility to create \texttt{AsyncTask}s,
-different for every service, that will be executed on a thread pool (in order to
+different for each service, that will be executed on a thread pool (in order to
 make possible to fulfill more tasks at same time). Each of those
 \texttt{AsyncTask}s must be associated to a listener, in order to collect all
 the results of the search. Practically, classes that implement the interface
@@ -124,33 +124,33 @@ method some error occurred. The latter one is called if the
 \texttt{doInBackground()} method is executed without any issue, during 
 \texttt{onPostExecute()}.
 
-Thanks to the possibility of detect failures in image recognition process, and 
-since we use more services, we implemented some robustness feature in our 
-application, enabling it to return an error to the user only if all services 
-fail. The scenario where, even if the application could start the image 
-recognition process, but it is not be able to finish it, could still occurs 
+Thanks to the possibility of detecting failures in image recognition process - and 
+due to the fact that we use more services - we implemented some robustness feature 
+in our application, enabling it to return an error to the user only if all services 
+fail. The scenario where the application could start the image 
+recognition process, but it would not be able to finish it, could still occurs 
 (e.g. caused by a network fault).
 
 If no errors occur, we decided to skim results based on the probability that a
 word (or group of words) could be correlated to the user picture. So, if the
 service provides this feature, we only take result that have an high
-probability, setting the threshold to 70\% (we set that value empirically). If 
+probability, setting the threshold to 70\% - we set that value empirically. If 
 the service does not provide a probability, it generally divides results in two 
 sets based on the fact that a certain word could be more or less correlated to 
 the picture. In that case, we present to the user only the more related results.
 
-This layer not only has responsibility to search the image but it has to offer
+This layer has not only the responsibility of searching the image but it also has to offer
 the possibility to upload the image that has to be recognized. Because of
 limitations of some services and to reduce network usage, we decided to upload 
 the photo to a server, and send the URL of the image to different services.
 With this approach, we reduce bandwidth usage: the user needs to upload the
-photo only once and can take advantage of the URL to make the recognition with
+photo only once and she can take advantage of the URL to make the recognition with
 more services.
 
 The camera layer, instead, has only to manage the photo taking process, in order
-to make it possible to take a photo and save it on the user's smartphone. These
+to make possible to take a photo and save it on the users' smartphone. These
 activities are fulfilled using the Camera Fragment library. It uses a fragment
-in order to show to the user a preview of the photo and, when the user touch on
+in order to show to the user a preview of the photo and, when the user tap on
 the button to take photos, saves the image in a specific folder using a
 listener (in our case, the GHio-Ca folder, inside Android default Picture
 folder). In order to recognize the photo taken, we decided to create a
