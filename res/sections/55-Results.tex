@@ -15,7 +15,7 @@ we showed what they had to do, (ii) wrote a mini-wiki where the experiment was
 explained, (iii) modified the application. 
 
 According to our planning, to each testing member was asked to take 5 photos. 
-The final number of photos that we received is 146.
+The final number of photos that we received is 150.
 
 \subsection{Tester vs Normal version}
 
@@ -33,14 +33,14 @@ photos to our email address.
 \subsection{Graphical analysis}
 
 At the end of the testing phase, we collected all the e-mails received, we 
-counted them and, thanks to \texttt{R}, we built several graphical 
+counted them and, exploiting \texttt{R}, we built several graphical 
 rappresentations that we explain as follows.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{AzureGraph}
 \caption{Histogram of Azure tagging results (679 tags provided, 574 matches, 105 
-errors)}
+mismatch)}
 \label{img:testgraphsazure}
 \end{figure}
 
@@ -52,7 +52,7 @@ obtain.
 \centering
 \includegraphics[scale=0.4]{GoogleGraph}
 \caption{Histogram of Google tagging results (32 tags provided, 10 matches, 22 
-errors)}
+mismatch)}
 \label{img:testgraphgoogle}
 \end{figure}
 
@@ -66,7 +66,7 @@ from/to user images, thus we did not expect good results from this service.
 \centering
 \includegraphics[scale=0.4]{ImaggaGraph}
 \caption{Histogram of Imagga tagging results (507 tags provided, 394 matches, 
-113 errors)}
+113 mismatch)}
 \label{img:testgraphimagga}
 \end{figure}
 
@@ -80,7 +80,7 @@ confidence.
 \centering
 \includegraphics[scale=0.4]{WatsonGraph}
 \caption{Histogram of Watson tagging results (812 tags provided, 551 matches, 
-261 errors)}
+261 mismatch)}
 \label{img:testgraphwatson}
 \end{figure}
 
@@ -92,7 +92,7 @@ that the service provided a lot of tags, but a good chunk were wrong, with only
 \centering
 \includegraphics[scale=0.4]{OverallGraph}
 \caption{Histogram of all tagging results (2030 tags provided, 1529 matches, 501 
-errors)}
+mismatch)}
 \label{img:testgraphoverall}
 \end{figure}
 
@@ -106,7 +106,10 @@ a percentage of 75\% of correct tags, that we consider it to be a good result.
 \label{img:testatleastone}
 \end{figure}
 
-In Figure~\ref{img:testatleastone} we can see the number of times that services gave back at least one correct tag. Even in this case, Azure was the service that had the best performance but also Watson and Imagga gave back results that are good enough.
+In Figure~\ref{img:testatleastone} we can see the number of times that services 
+gave back at least one correct tag. Even in this case, Azure was the service 
+that had the best performance but also Watson and Imagga gave back results that 
+are good enough.
 
 \begin{figure}[H]
 \centering
@@ -115,7 +118,11 @@ In Figure~\ref{img:testatleastone} we can see the number of times that services 
 \label{img:testcompletematch}
 \end{figure}
 
-Finally, we present in Figure~\ref{img:testcompletematch} the number of time that a service returned a bunch of tags that were all confirmed as matches by a user. In this case Azure and Imagga had the best results. In this case even Google Reverse Image Search has a positive result, because it gives to the user only one tag that could be accepted or not.
+Finally, we present in Figure~\ref{img:testcompletematch} the number of time 
+that a service returned a bunch of tags that were all confirmed as matches by a 
+user. In this case Azure and Imagga had the best results. In this case even 
+Google Reverse Image Search has a positive result, because it gives to the user 
+only one tag that could be accepted or not.
 
 \subsection{Character recognition}
 
