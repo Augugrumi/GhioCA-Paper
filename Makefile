@@ -13,7 +13,10 @@ export PASSWORD
 
 all: image fast
 
-fast:
+fast: generate quiet
+debug: generate notquiet
+
+generate:
 	set -e; \
 	if [[ -a "res/$(LIST_NAME)" ]]; then echo "Removing res/$(LIST_NAME)"; \
 		rm res/$(LIST_NAME); fi; \
@@ -21,13 +24,17 @@ fast:
 		echo "Adding $$i into $(LIST_NAME)"; \
 		echo "\input{$$i}" >> res/$(LIST_NAME); \
 	done; \
+
+quiet:
+	latexmk -jobname=$(OUTPUT_NAME) -pdflatex='$(COMPILER_OPTIONS)' -quiet -pdf main.tex;
+
+notquiet:
 	latexmk -jobname=$(OUTPUT_NAME) -pdflatex='$(COMPILER_OPTIONS)' -pdf main.tex;
 
 image:
 	set -e; \
 	cd ./tool/emaildownloader/; \
 	$(MAKE) IMAGES_PATH=../../res/img/;
-
 
 clean:
 	git clean -Xfd
