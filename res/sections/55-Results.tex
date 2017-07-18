@@ -14,20 +14,20 @@ Our approach was to make as simple as possible for the tester to contribute: we
 we showed what they had to do, (ii) wrote a mini-wiki where the experiment was 
 explained, (iii) modified the application. 
 
-According to our planning, to each testing member was asked to take 5 photos. 
+According to our planning, each testing member was asked to take 5 photos. 
 The final number of photos that we received is 150.
 
 \subsection{Tester vs Normal version}
 
 We needed to implement three main changes to the normal version to be able to 
-carry on the experiment. The first one is about the way we retrieved results 
+carry out the experiment. The first one is about the way we retrieved results 
 from services: in the normal version, the tags are merged together, instead in 
 the test version we did not merge them.
 Abuse of APIs calls from users was our main concern. To solve this issue, we put 
 a limit on the maximum number of pictures that a tester could take.
 Last but not least is how the results are shared. With the test version, we only 
 allowed users to share the content with e-mail applications, sending tags and 
-photos to our email address.
+photos to our hard-coded email address.
 
 
 \subsection{Graphical analysis}
@@ -70,8 +70,8 @@ from/to user images, thus we did not expect good results from this service.
 \label{img:testgraphimagga}
 \end{figure}
 
-Imagga is an minor service that we discovered searching online. This provider 
-give us 78\% of correct tags (Figure~\ref{img:testgraphimagga}). It is important 
+Imagga is a minor service that we discovered searching online. This provider 
+gave us 78\% of correct tags (Figure~\ref{img:testgraphimagga}). It is important 
 to keep in mind that most of the bad tags were filtered by our application 
 before getting displayed to the user. We displayed tags with more than 0.7 of 
 confidence.
@@ -97,7 +97,7 @@ mismatch)}
 \end{figure}
 
 In Figure~\ref{img:testgraphoverall} we can see the overall representation, with 
-a percentage of 75\% of correct tags, that we consider it to be a good result.
+a percentage of 75\% of correct tags, that we consider to be a good result.
 
 \begin{figure}[H]
 \centering
@@ -118,7 +118,7 @@ are good enough.
 \label{img:testcompletematch}
 \end{figure}
 
-Finally, we present in Figure~\ref{img:testcompletematch} the number of time 
+Finally, we present in Figure~\ref{img:testcompletematch} the number of times 
 that a service returned a bunch of tags that were all confirmed as matches by a 
 user. In this case Azure and Imagga had the best results. In this case even 
 Google Reverse Image Search has a positive result, because it gives to the user 
