@@ -19,5 +19,8 @@ addons:
     - pgf
 script:
 - make fast
+after_failure:
+- make clean
+- make debug
 before_deploy:
 - git fetch --tags
