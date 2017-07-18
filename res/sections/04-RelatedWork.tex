@@ -4,38 +4,38 @@
 Computer Vision is a branch of machine learning which is rapidly increasing, 
 finding a fertile ground in many applications. One of the most obvious is 
 \textit{image processing}, which involves applying changes to an image using an 
-algorithm. In~\cite{Rain}, researchers developed a DNN used to remove rain drops 
-from images. As in this case, many other changes can be applied to images: 
-increasing size with minimum quality loss, removing objects, improving image 
-resolution, and so on. However, computer vision contains also another kind of 
-application: \textit{image detection}. Using NNs, algorithms are able to detect 
-pedestrians in images\cite{Pedestrian} (which is fundamental for self-driving 
-cars) and also detect anomalous behaviours in crowds\cite{Crowd}. Being able to 
-detect shapes (e.g. a person) and irregular patterns can also help in terrorism 
-detection and prevention.
+algorithm. In~\cite{Rain}, researchers developed a DNN used to remove rain 
+drops from images. As in this case, many other changes can be applied to 
+images: increasing size with minimum quality loss, removing objects, improving 
+image resolution, and so on. However, computer vision contains also another kind 
+of application: \textit{image detection}. Using NNs, algorithms are able to 
+detect pedestrians in images\cite{Pedestrian} (which is fundamental for 
+self-driving cars) and also detect anomalous behaviours in crowds\cite{Crowd}. 
+Being able to detect shapes (e.g. a person) and irregular patterns can also 
+help in terrorism detection and prevention.
 
-On the other hand, image classification has two main problems: \textit{time} and 
-\textit{cost}. This task can be performed by a machine but, in order to do so, 
-the algorithm needs to be previously trained with a supervised learning 
-approach. Consequently, someone has to label different images. This task is typically 
-done by people who are paid to execute it. Differently from machines, humans are 
-far from fast to perform image labelling; consequently, in order to obtain a 
-large dataset, a lot of time is required.
+On the other hand, image classification has two main problems: \textit{time} 
+and \textit{cost}. This task can be performed by a machine but, in order to do 
+so, the algorithm needs to be previously trained with a supervised learning 
+approach. Consequently, someone has to label different images. This task is 
+typically done by people who are paid to execute it. Differently from machines, 
+humans are far from fast to perform image labelling; consequently, in order to 
+obtain a large dataset, a lot of time is required.
 As in other cases in Computer Science, \textit{parallelization} can improve the 
 performance of this job: if a person needs two seconds to label an image, one 
 thousand people can provide one thousand labelled images in the same amount of 
 time. One good example of this principle is the database 
 ImageNet\cite{ImageNet2}, ``a large-scale ontology of images built upon the 
-backbone of the WordNet structure"\cite{ImageNet1}. This database can be used as 
-benchmark and improvement tool for computer vision algorithms.
+backbone of the WordNet structure"\cite{ImageNet1}. This database can be used 
+as benchmark and improvement tool for computer vision algorithms.
 However, in our opinion even this last case lacks of two fundamental 
 properties: \textit{usability} and \textit{zero-day learning}. Obviously, 
 accessing to such database in order to retrieve information and perform pattern 
-recognition is not a task which can be performed by a common user (i.e. a person 
-who does not have any skill in computer science and programming) without a proper user 
-interface. Furthermore, this database needs to be populated in the first place: 
-this task requires paying people to do so.
+recognition is not a task which can be performed by a common user (i.e. a 
+person who does not have any skill in computer science and programming) without 
+a proper user interface. Furthermore, this database needs to be populated in the 
+first place: this task requires paying people to do so.
 
-Our application aims to solve these big issues, providing a usable interface for 
-image recognition and exploiting smartphones to build a database from third-party 
-services.
+Our application aims to solve these big issues, providing a usable interface 
+for image recognition and exploiting smartphones to build a database from 
+third-party services.
