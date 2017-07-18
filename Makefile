@@ -11,9 +11,9 @@ SHELL := /bin/bash #Need bash not shell
 export EMAIL
 export PASSWORD
 
-all: image fast
+all: generate quiet
 
-fast: generate quiet
+slow: image generate quiet
 debug: generate notquiet
 
 generate:
