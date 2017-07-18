@@ -130,7 +130,7 @@ services fail. The scenario where the application could start the image
 recognition process, but it would not be able to finish it, can still occurs 
 (e.g. caused by a network fault).
 
-If no errors occur, we decided to skim results based on the probability that a
+When no errors occur the results are skimmed based on the probability that a
 word (or group of words) could be correlated to the user picture. So, if the
 service provides this feature, we only take results that have an high
 probability, setting the threshold to 70\% - we set that value empirically. If 
