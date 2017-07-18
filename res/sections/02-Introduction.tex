@@ -2,26 +2,26 @@
 \label{sec:introduction}
 
 Nowadays, almost everyone owns at least one smartphone. That kind of devices are 
-becoming more and more powerful, with better hardware and performace. One of the 
-most interesting capability of smartphones is to take high quality pictures, and 
+becoming more and more efficient, with better hardware and performace. One of the 
+most interesting capabilities of smartphones is to take high quality pictures, and 
 users truly appreciate it. As a matter of fact, on the Google Play Store there 
-are plenty of application dedicated to photography.
-A lot of people take photo in order to share it on social networks, such as 
+are plenty of applications dedicated to photography.
+A lot of people take photos in order to share it on social networks, such as 
 Facebook, Instagram, Twitter and so on. Often those photos are associated with a 
 description and, generally, some hashtags that label them. The latter could be 
 personal words that a person associate to a certain photo (e.g. feelings, person 
-names, places) but they could also be used in order to describe the content of 
+names, places) but they could also be used in order to describes the content of 
 the photo.
 All these pieces of information can be really useful to train algorithms and to 
 create datasets used in order to recognize images: in fact, these data, which 
 are freely available, are posted by a person that manually label and describe a 
 specific photo.
 
-Usually, image recognition services process an image, giving back a result that 
-consists of a set of labels associated to that picture. Results can vary in precision 
-depending on the photo quality, subject and also on algorithm used. 
-The result given back often is not perfect: indeed, at the current state of art, image 
-recognition can not be as precise as a human to describe a picture.
+Usually, image recognition services process an image giving back as a result 
+a set of labels associated to that picture. Results can vary in precision 
+depending on the photo quality, subject and also on the algorithm used. 
+The result given back often is not perfect: indeed, at the current state of the art, image 
+recognition algorithms cannot be as precise as a human to describe a picture.
 One of the opportunities to take advantage of this context is to embed in an application 
 the possibility of taking photos which are processed by some image 
 recognition service. The result of this process is displayed to the user, 
@@ -37,29 +37,29 @@ allows people to take photos or choose pictures which are automatically
 processed by some image recognition service. In particular, we used the 
 following services:
 \begin{itemize}
-  \item Computer Vision API by Microsoft Azure\cite{Microsoft};
-  \item Visual Recognition by IBM Watson\cite{IBM};
-  \item Google Reverse Image Search\cite{Google};
-  \item OCR Space\cite{OCR};
-  \item Imagga\cite{Imagga}.
+  \item Computer Vision API by Microsoft Azure \cite{Microsoft};
+  \item Visual Recognition by IBM Watson \cite{IBM};
+  \item Google Reverse Image Search \cite{Google};
+  \item OCR Space \cite{OCR};
+  \item Imagga \cite{Imagga}.
 \end{itemize}
 
 While quality of service and usability are major issues to develop an 
 application, we focused mainly on technical aspects, such as the ability to 
-take photo correctly and save them, make request to image recognition services 
-and parse result in order to display them. We did not focus our efforts on 
-robustness of the application: if the request can not be performed (for example 
-for a network failure or a service fault), the application only notify to the 
+take photos correctly and save them, make requests to image recognition services 
+and parse results in order to display them. We did not focus our efforts on 
+robustness of the application: if a request can not be performed (e.g. 
+caused by a network failure or a service fault), the application notifies to the 
 user that some error occurred. However, GHio-Ca allows users to retry the image 
 recognition process on the same picture.
 
 This paper is organized as follows: Section~\ref{sec:background} describes how 
 artificial intelligence can perform image processing based on pattern matching 
-and neural networks, while Section~\ref{sec:related} provides an overview on the 
-current of art of Computer Vision applications. Section~\ref{sec:ghioca} 
+and neural networks, while Section~\ref{sec:related} provides an overview of the 
+current state of the art of Computer Vision applications. Section~\ref{sec:ghioca} 
 describes how the application is designed and implemented, while
-Section~\ref{sec:issues} describes the problems we faced while developing our 
+Section~\ref{sec:issues} lists the problems we faced while developing our 
 application. Finally, in Section~\ref{sec:results} we compare different image 
 recognition APIs and in Section~\ref{sec:future} we propose some future 
-developments for our application; Section~\ref{sec:conclusion} list conclusions 
-of our work.
+developments for our application. Finally, Section~\ref{sec:conclusion} provides 
+conclusions about our work.
