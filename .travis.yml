@@ -18,7 +18,7 @@ addons:
     - texlive-publishers
     - pgf
 script:
-- make fast
+- make
 after_failure:
 - make clean
 - make debug
