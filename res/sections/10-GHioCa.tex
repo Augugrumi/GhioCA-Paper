@@ -19,12 +19,6 @@ The overall application is mainly composed by four activities.
 This view (Figure~\ref{fig:splash}) is needed to obtain from the user
 the necessary permissions (network access, camera access, access to  the
 storage).
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.2\textwidth]{../img/splash}
-    \caption{Screenshot of \texttt{SplashActivity} during authorization request}
-    \label{fig:splash}
-\end{figure}
 
 \subsubsection{\texttt{CameraPreviewActivity}}
 This activity (Figure~\ref{fig:mainActivity}) shows to the user a camera
@@ -35,13 +29,6 @@ menu: it allows the user to choose the size of the picture she took, it can remi
 to the user to turn on the Wi-Fi sensor at every access and it allows to switch 
 from the image recognition functionality to the Optical Character Recognition (OCR)
 feature and vice-versa.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.30\textwidth]{../img/main_activity}
-    \caption{Screenshots of \texttt{CameraPreviewActivity}, with the hamburger
-menu open and closed}
-    \label{fig:mainActivity}
-\end{figure}
 
 \subsubsection{\texttt{ResultActivity}}
 There are two different activities (Figure~\ref{fig:imageResultActivity}),
@@ -55,11 +42,27 @@ tags. Any tag can be deselected by the user if it does not fit the image.
 The user is able to pick another language for the translation from a drop down menu.
 \end{itemize}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.18\textwidth]{../img/image_result_activity}
-    \caption{Screenshot of \texttt{ResultActivity} for image recognition}
-    \label{fig:imageResultActivity}
+\begin{figure}[htp]
+\centering
+    \subfloat[\texttt{ResultActivity} for image recognition]{
+        \label{fig:imageResultActivity}
+        \includegraphics[width=0.4\linewidth]
+        {../img/image_result_activity}
+    }
+    \hfill
+    \subfloat[\texttt{SplashActivity} during authorization request]{
+        \label{fig:splash}
+        \includegraphics[width=0.4\linewidth]
+        {../img/splash}
+    }
+    \\
+    \subfloat[\texttt{CameraPreviewActivity}, with menu open and close]{
+        \label{fig:mainActivity}
+        \includegraphics[width=0.65\linewidth]
+        {../img/main_activity}
+    }
+    \caption{Screenshot taken from the application}
+    \label{fig:test}
 \end{figure}
 
 \subsection{Libris}

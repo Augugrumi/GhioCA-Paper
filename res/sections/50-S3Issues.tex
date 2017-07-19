@@ -18,44 +18,28 @@ Image Recognition service.
 \subsubsection{Free OCR Space Character Recognition}
 
 Free OCR Space is an OCR service that works very well, providing the text 
-contained in a picture. It comes with different kind of subscriptions: the free 
-one allowed us to upload images up to 1MB. We solved this limitation using 
-different providers combination to be able to use Free OCR Space when the image 
-is smaller than 1MB, and other services when it is bigger than this threshold.
+contained in a picture. It comes with different kind of subscriptions: the 
+free one allowed us to upload images up to 1MB. We solved this limitation 
+using different providers combination to be able to use Free OCR Space when 
+the image is smaller than 1MB, and other services when it is bigger than this 
+threshold.
 
 \subsubsection{IBM Watson Image Recognition}
 
 We also adopted an Image Recognition service from IBM to obtain more 
 tags from a shot performed by the user. Although we did not have problem with 
-the service per-se, we found a bug in the Watson SDK related to the data format 
-used, that we where able to fix.
+the service per-se, we found a bug in the Watson SDK related to the data 
+format used, that we where able to fix.
 
 \subsection{Smartphones issues}
 
-During GHio-CA development we found problems with a particular smartphone, that 
-is described here.
+During GHio-CA development we found problems with a particular smartphone, 
+that is described here.
 
 \subsubsection{S3 first application run}
 
-We found using the Samsung S3 (I9300) model that permissions were not granted 
-correctly, consequently we were not able to save the user photos properly and 
-thus to perform reverse image search at first application run. Debugging did not 
-produce any evidence of bugs in our application, since the permissions were 
-granted on start up time.
-We address this issue to the custom ROM flashed on the smartphone, LineageOS 
-(Android Nougat 7.1), which probably has some problems to handle authorisations 
-on S3 smartphones. We tried this ROM on a Nexus 5 and we have not noticed any 
-particular behaviour.
-To confirm our guesses, we tried another camera available on the Google's Play 
-Store, OpenCamera\footnote{\url{
-https://play.google.com/store/apps/details?id=net.sourceforge.opencamera}}, an 
-open-source camera that requires Android 4.0.3 (Ice Cream Sandwich) or later.
-Opening it for the first time, granting the permission to write in the external 
-storage and taking a photo has not worked even for this application, confirming 
-our guesses about a bug in the LineageOS version for Samsung S3.
-We were not able to solve this issue without a restart of the application. We 
-found this problem also with Google's app 
-Snapseed\footnote{\url{
-https://play.google.com/store/apps/details?id=com.niksoftware.snapseed}}.
-However, we do not address this as a main issue since there are few old devices 
-on the market which use this ROM.
+We found that using the Samsung S3 (I9300) model permissions were not granted correctly, consequently we were not able to save the user's photos properly and thus to perform reverse image search at first application run. Debugging did not produce any evidence of bugs in our application, since the permissions 
+were granted during the start up time.
+We address this issue to the custom ROM installed on the smartphone, LineageOS 
+(Android Nougat 7.1), which probably has some problem to handle authorisations only on S3 smartphones. In fact, we tried this ROM on a Nexus 5 and we have not noticed any erroneous behaviour. To confirm our guesses, we tried another camera application available on the Google's Play Store, OpenCamera\footnote{\url{https://play.google.com/store/apps/details?id=net.sourceforge.opencamera}}
+, and a Google's app, Snapseed\footnote{\url{https://play.google.com/store/apps/details?id=com.niksoftware.snapseed}}, experiencing the same problem.
