@@ -1,7 +1,7 @@
 \section{GHio-Ca}
 \label{sec:ghioca}
 In this section we provide a description of some salient features implemented 
-in our application, mainly regarding the architectural and implementative choices 
+in our application, mainly regarding the architectural and implementation choices 
 that we made during its development.
 
 \subsection{Application description}
@@ -91,7 +91,7 @@ library that simplifies the camera usage in Android. It is open source and freel
 available on Github. Because of some issues in the library, mainly caused by 
 the wrong management of Android \texttt{Camera1} and \texttt{Camera2} classes, and due 
 to the fact that some parts of that library differed from the one expected in 
-GHio-Ca, we decided to modify that project, alligning it to our needs.
+GHio-Ca, we decided to modify that project, aligning it to our needs.
 
 \subsection{Architecture}
 GHio-Ca is principally composed by three layers (Figure~\ref{fig:architecture}):
@@ -112,10 +112,10 @@ networking layer).
     \label{fig:architecture}
 \end{figure}
 
-Since we need to make API calls to recognise an image, we implemented a
+Since we need to make API calls to recognize an image, we implemented a
 utility class that offers the possibility to create \texttt{AsyncTask}s,
 different for each service, that will be executed on a thread pool (in order to
-make possible to fulfil more tasks at the same time). Each of those
+make possible to fulfill more tasks at the same time). Each of those
 \texttt{AsyncTask}s must be associated to a listener, in order to collect all
 the results of the search. Practically, classes that implement the interface
 \texttt{Listener} expose methods \texttt{onStart()}, \texttt{onFailure()} and
@@ -142,7 +142,7 @@ sets based on the fact that a certain word could be more or less correlated to
 the picture. In that case, we present to the user only the more related results.
 
 The duty of this layer goes beyond the sole responsibility of searching the 
-image, carrying on the process to upload and recognise the picture.
+image, carrying on the process to upload and recognize the picture.
 Due to limitations of some services and to reduce network usage, we decided 
 to upload the photo to a server, and send the URL of the image to different 
 services.
@@ -156,7 +156,7 @@ activities are fulfilled using the CameraFragment library. It uses a fragment
 in order to show to the user a preview of the photo and, when the user tap on
 the button to take photos, saves the image in a specific folder using a
 \textit{listener} (in our case, the GHio-Ca folder, inside Android default Picture
-folder). To be able to recognise the taken photo, we decided to create a
+folder). To be able to recognize the taken photo, we decided to create a
 \texttt{Listener} that has to check this process and, when the image is 
 successfully saved on the smartphone, it starts the image recognition process.
 This layer has also to give the user the ability to select the camera (frontal
