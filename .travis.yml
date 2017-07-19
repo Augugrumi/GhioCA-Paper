@@ -11,7 +11,6 @@ addons:
     - texlive-bibtex-extra
     - latexmk
     - tex4ht
-    - biber
     - texlive-fonts-recommended
     - texlive-lang-italian
     - latex-xcolor
@@ -24,3 +23,13 @@ after_failure:
 - make debug
 before_deploy:
 - git fetch --tags
+deploy:
+  provider: releases
+  api_key:
+    secure: hqXixw/cPQH26kr4vtPLGo6QU1prVlRcF7XWjtMlG6vw8P5ebM9hRlAsh+SA0OHR+dgsEl+8KuTrMVIwLZAcEkr4ZuZE+07I5y/WEJFkmUwG8RXahLGWYwyWbcCATbrDYm4Sqgu67cU6FzuQH/1UJ3EY32OPy1CunXm9xO9PULXPwCItlr/1ru33MV+ls4vOOrSxO+UI0nc5+zdOa4r6O7Jb674HCWR5TrRclyRoBSbfodD3GHa5yl+SGghqR41qOqu/vFQCsLCcNTjon0VBafUBRgJyTkW5rN0XTExg4X1rYZibwCOH+mlZJ9Lk+yJV65A/qtsxilnVPsSWgVJmkWXdUlX/YC9az/e1qhnGIftb1B0aybcf5yoYpycrQ3hTtZGvoVeNswGYCcSa2JqCoNOkD2S0/q1ojWIphyXdPOpUG5QM7AFO7EqUXv2Z96j+/L60WuZYkZx2/2J5A2axLjZmM+fhhq45XpHLiUzoXDEOyVntTaGZalzFtr+cw+xWAJOIC2PhKmDZrFnbKQRGshmjGFGCXGe4HBv692JaMDIWCqp98r4yAH8GbqahxnQJ2V2pzaMp1GObVJ+BTwERXAKRbueJNjBQiJIH33D5ld8qymIoFj+tAbBHnt+oCK5ktIsvIgvLTULqE+Ur7h20Dlbt23ZHjrPTSbB7484DOrs=
+  file: GhioCA.pdf
+  skip_cleanup: true
+  on:
+    repo: Augugrumi/GhioCA-Paper
+    tags: true
+
