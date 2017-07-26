@@ -1,51 +1,31 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Nowadays, almost everyone owns at least one smartphone. That kind of devices 
-are becoming even more efficient, with better hardware and performace. One of 
-the most interesting capabilities of smartphones is to take high quality 
-pictures, and users truly appreciate it. As a matter of fact, on the Google 
-Play Store there are plenty of applications dedicated to photography.
-A lot of people take photos in order to share it on social networks, such as 
-Facebook, Instagram, Twitter and so on. Often those photos are associated with 
-a description and, generally, some hashtags that label them. The latter could 
-be personal words that a person associate to a certain photo (e.g. feelings, 
-person names, places) but they could also be used in order to describes the 
-content of the photo.
-All these pieces of information can be really useful to train algorithms and 
-to create datasets used in order to recognize images: in fact, these data, 
-which are freely available, are posted by a person that manually label and 
-describe a specific photo.
+Social media has become a ubiquitous part of everyday life. The amount of data being published through these services contains valuable potential information which can be exploited by algorithms and put to good 
+in order to provide new and innovative services to the users~\cite{ref1}. However, extracting the semantics from the data is generally a hard problem and user provided information could aid to better contextualize
+and infer their meaning.
 
-Usually, image recognition services process an image returning a set of labels 
-associated to that picture. Results can vary in precision depending on the 
-photo quality, subject and also on the algorithm used. The result given back 
-often is not perfect: indeed, at the current state of the art, image 
-recognition algorithms cannot be as precise as a human to describe 
-a picture. One of the opportunities to take advantage of this context is to 
-embed in an application the possibility of taking photos which are processed 
-by some image recognition service. The result of this process can be displayed 
-to the user, who can choose only the subset of tags that she thinks are truly 
-correlated to her picture: in that way users can automatically associate some 
-tags to their photos and share them on social networks. On the other hand, 
-using a human to check the result, you could evaluate how much a specific 
+One such category of data are photos published on social networks which are generally associated with a description and, some hashtags that label them. The latter could be personal words that a person associate 
+to a certain photo (e.g. feelings, person names, places) but they could also be used in order to describes the content of the photo. All these pieces of information can be really useful to train algorithms and 
+to create datasets used in order to recognize images: in fact, these data, which are freely available, are posted by a person that manually label and describe a specific photo.
+
+However, we argue that user provided hashtags are often imprecise and user-subjective. As an alternative one could rely on image recognition services to automatically tag images prior to sharing them on social networks 
+sites. Image recognition services process an image and return a set of labels associated to that picture. Results vary in precision depending on the 
+photo quality, subject and also on the algorithm being employed. Indeed, at the current state of the art, image 
+recognition algorithms cannot be as precise as a human to describe a picture. One of the opportunities to take advantage of this context is to 
+embed in an application the possibility of taking photos which are processed by some image recognition service. The result of this process can be displayed 
+to the user, who can choose only the subset of tags that she thinks are truly correlated to her picture: in that way users can automatically associate some 
+tags to their photos and share them on social networks. On the other hand, using a human to check the result, you could evaluate how much a specific 
 service works good, training your own dataset or algorithm.
 
 Following this idea, we designed and developed \textit{GHio-Ca} (\textit{Giving 
-Hashtags In Order to Classify Automatically}), an Android application that 
-allows people to take photos or choose pictures which are automatically 
-processed by some image recognition service. In particular, we used the 
+Hashtags In Order to Classify Automatically}), an Android application that allows people to take photos or choose pictures which are automatically 
+processed by some image recognition service. In particular, in order to achieve our purpose, we rely on the 
 following services: (a) Computer Vision API by Microsoft Azure \cite{Microsoft}
 , (b) Visual Recognition by IBM Watson \cite{IBM}, (c) Google Reverse Image 
 Search \cite{Google}, (d) OCR Space \cite{OCR} and (e) Imagga \cite{Imagga}.
 
-While quality of service and usability are major issues developing an 
-application, we focused mainly on technical aspects, such as the ability to 
-take photos correctly and save them, make requests to image recognition 
-services and parse results in order to display them. We did not focus our 
-efforts on robustness of the application: if a request can not be performed 
-(e.g. caused by a network failure or a service fault), the application 
-notifies to the user that some error occurred. However, GHio-Ca allows users to retry the image recognition process on the same picture.
+Our application was designed with quality of service and usability requirements in mind. 
 
 This paper is organized as follows: Section~\ref{sec:background} describes how 
 artificial intelligence can perform image processing based on pattern matching 
