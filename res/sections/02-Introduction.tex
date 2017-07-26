@@ -1,31 +1,47 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Social media has become a ubiquitous part of everyday life. The amount of data being published through these services contains valuable potential information which can be exploited by algorithms and put to good 
-in order to provide new and innovative services to the users~\cite{ref1}. However, extracting the semantics from the data is generally a hard problem and user provided information could aid to better contextualize
-and infer their meaning.
+Social media has become a ubiquitous part of everyday life. The amount of data 
+being published through these services contains valuable potential information 
+which can be exploited by algorithms and put to good in order to provide new 
+and innovative services to the users~\cite{ref1}. However, extracting the 
+semantics from the data is generally a hard problem and user provided 
+information could aid to better contextualize and infer their meaning.
 
-One such category of data are photos published on social networks which are generally associated with a description and, some hashtags that label them. The latter could be personal words that a person associate 
-to a certain photo (e.g. feelings, person names, places) but they could also be used in order to describes the content of the photo. All these pieces of information can be really useful to train algorithms and 
-to create datasets used in order to recognize images: in fact, these data, which are freely available, are posted by a person that manually label and describe a specific photo.
+One such category of data are photos published on social networks which are 
+generally associated with a description and, some hashtags that label them. 
+The latter could be personal words that a person associate to a certain photo (
+e.g. feelings, person names, places) but they are also used in to describes  
+the content of the photo. All these pieces of information can be really useful 
+to train algorithms and to create datasets used in order to recognize images: 
+in fact, these data, which are freely available, are posted by a person that 
+manually label a specific photo.
 
-However, we argue that user provided hashtags are often imprecise and user-subjective. As an alternative one could rely on image recognition services to automatically tag images prior to sharing them on social networks 
-sites. Image recognition services process an image and return a set of labels associated to that picture. Results vary in precision depending on the 
-photo quality, subject and also on the algorithm being employed. Indeed, at the current state of the art, image 
-recognition algorithms cannot be as precise as a human to describe a picture. One of the opportunities to take advantage of this context is to 
-embed in an application the possibility of taking photos which are processed by some image recognition service. The result of this process can be displayed 
-to the user, who can choose only the subset of tags that she thinks are truly correlated to her picture: in that way users can automatically associate some 
-tags to their photos and share them on social networks. On the other hand, using a human to check the result, you could evaluate how much a specific 
-service works good, training your own dataset or algorithm.
+However, we argue that user provided hashtags are often imprecise and/or 
+user-subjective. Those problems could be partially reduced relying on image 
+recognition services that automatically tag images prior to sharing them on 
+social networks sites. Those services return a set of labels that could be 
+associated to the  picture, but results may vary in precision due to photo 
+quality, subject and the algorithm employed. In this context we could think to 
+an application that display to the user the image recognition result, giving 
+to her the possibility to delete erroneous tags: in that way we provide a 
+service that consists in auto tagging before sharing on social media. Assuming 
+the user to only pick up tags that fit the picture, it will allow us to ollect 
+closely image related hashtags, enabling the possibility to evaluate services 
+and traing datasets or algorithms. Finally data coming from app users could be 
+evaluated following a recommendation system.
 
-Following this idea, we designed and developed \textit{GHio-Ca} (\textit{Giving 
-Hashtags In Order to Classify Automatically}), an Android application that allows people to take photos or choose pictures which are automatically 
-processed by some image recognition service. In particular, in order to achieve our purpose, we rely on the 
-following services: (a) Computer Vision API by Microsoft Azure \cite{Microsoft}
-, (b) Visual Recognition by IBM Watson \cite{IBM}, (c) Google Reverse Image 
-Search \cite{Google}, (d) OCR Space \cite{OCR} and (e) Imagga \cite{Imagga}.
+Following this idea, we designed and developed \textit{GHio-Ca} (\textit{
+Giving  Hashtags In Order to Classify Automatically}), an Android application 
+that allows people to take photos or choose pictures which are automatically 
+processed by some image recognition service. In particular, in order to 
+achieve our purpose, we rely on the following services: (a) Computer Vision 
+API by Microsoft Azure \cite{Microsoft}, (b) Visual Recognition by IBM Watson 
+\cite{IBM}, (c) Google Reverse Image Search \cite{Google}, (d) OCR Space \cite{
+OCR} and (e) Imagga \cite{Imagga}.
 
-Our application was designed with quality of service and usability requirements in mind. 
+Our application was designed with quality of service and usability 
+requirements in mind. 
 
 This paper is organized as follows: Section~\ref{sec:background} describes how 
 artificial intelligence can perform image processing based on pattern matching 
@@ -35,5 +51,5 @@ Section~\ref{sec:ghioca} describes how the application is designed and
 implemented, while Section~\ref{sec:issues} lists the problems we faced while 
 developing our application. Finally, in Section~\ref{sec:results} we compare 
 different image recognition APIs and in Section~\ref{sec:future} we propose 
-some future developments for our application. Finally, Section~\ref{sec:conclusion} 
-provides conclusions about our work.
+some future developments for our application. Finally, 
+Section~\ref{sec:conclusion} provides conclusions about our work.
